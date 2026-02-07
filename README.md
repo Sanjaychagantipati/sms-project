@@ -47,6 +47,7 @@ Controller → Service → Repository → Database
 ```bash
 mvn clean package -DskipTests
 docker compose up --build
+```
 
 ---
 
@@ -54,11 +55,15 @@ docker compose up --build
 
 Go inside backend folder:
 
+```bash
 cd student-management-system
+```
 
 Run:
 
+```bash
 mvnw spring-boot:run
+```
 
 Swagger:
 http://localhost:8080/swagger-ui.html
@@ -69,12 +74,16 @@ http://localhost:8080/swagger-ui.html
 
 Go inside frontend folder:
 
+```bash
 cd sms-frontend
+```
 
 Run:
 
+```bash
 npm install
 npm start
+```
 
 Frontend:
 http://localhost:3000
