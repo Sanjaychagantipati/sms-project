@@ -7,21 +7,23 @@ A full-stack Student Management System built using Spring Boot, React, PostgreSQ
 ## 🚀 Features
 
 - JWT Authentication
-- Role Based Access
+- Role Based Access (ADMIN, TEACHER, STUDENT)
 - Student CRUD
 - Course Management
 - Enrollment
-- Swagger API
-- Docker support
+- Attendance & Marks
+- Swagger API Documentation
+- Dockerized Deployment
 
 ---
 
 ## 🛠 Tech Stack
 
 ### Backend
+- Java 17
 - Spring Boot
-- Java
-- JPA
+- Spring Security + JWT
+- Spring Data JPA
 - PostgreSQL
 
 ### Frontend
@@ -34,13 +36,17 @@ A full-stack Student Management System built using Spring Boot, React, PostgreSQ
 
 ---
 
-## 📁 Project Structure
+## 🏗 Architecture
 
-sms-project
-├── sms-frontend
-├── student-management-system
-├── docker-compose.yml
-└── README.md
+Controller → Service → Repository → Database
+
+---
+
+## ▶ Run Locally (Docker)
+
+```bash
+mvn clean package -DskipTests
+docker compose up --build
 
 ---
 
