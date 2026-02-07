@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: sms-postgres
+    environment:
+      POSTGRES_DB: sms_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./student-management-system
+    container_name: sms-backend
+    depends_on:
+      - postgres
+    ports:
+      - "8088:8088"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/sms_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+
+  frontend:
+    build: ./sms-frontend
+    container_name: sms-frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
+volumes:
+  postgres_data:
