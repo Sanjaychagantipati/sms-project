@@ -2,6 +2,8 @@ package com.sms.entity;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
@@ -31,6 +33,7 @@ public class Student {
 	@Past(message = "Date of birth must be in the past")
 	private LocalDate dateOfBirth;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
